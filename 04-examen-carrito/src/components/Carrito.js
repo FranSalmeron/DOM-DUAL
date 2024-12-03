@@ -8,23 +8,27 @@ export default class Carrito {
     agregarProducto(nombre,cantidad,precio){
         this.productos.push(new Producto(nombre,precio,cantidad))
         // guardar en el localStorage
+        this.guardarLocalStorage()
     }
 
     borrarProducto(index){
         this.productos.splice(index,1);
         // guardar en el localStorage
+        this.guardarLocalStorage()
     }
 
     editarProducto(index,newCantidad){
         if(newCantidad > 0){
             this.productos[index].cantidad = newCantidad;
             // guardar en el localStorage
+            this.guardarLocalStorage()
         }
     }
 
     calcularTotal(){
-        this.productos.reduce((total,producto) => total+producto.calcularTotal(),0);
+        return this.productos.reduce((total,producto) => total+producto.calcularTotal(),0);
     }
+
     // extra ---- localStorage ---------
 
     guardarLocalStorage(){
@@ -35,7 +39,7 @@ export default class Carrito {
         const carrito = JSON.parse(localStorage.getItem("carrito"));  
         // coger y guardar en productos un map creado de carrito con productos
         if(carrito){
-            this.productos = carrito.map((producto) => new Producto(carrito.nombre,carrito.precio,carrito.cantidad));
+            this.productos = carrito.map((producto) => new Producto(producto.nombre,producto.precio,producto.cantidad));
         }
     }
     // ordenar por nombre

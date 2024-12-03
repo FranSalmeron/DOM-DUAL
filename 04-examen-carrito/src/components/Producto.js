@@ -2,7 +2,7 @@
 let id = 1;
 
 export class Producto {
-    constructor(nombre,precio,cantidad){
+    constructor(nombre,cantidad,precio){
         this.id = id++;
         this.nombre = nombre; // Variables Publicas
         this.precio = precio;
