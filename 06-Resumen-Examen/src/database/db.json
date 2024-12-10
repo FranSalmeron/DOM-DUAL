@@ -1,0 +1,19 @@
+{
+    "products":[
+        {
+            "id": 1,
+            "name": "Camisa básica",
+            "price": 9.99,
+            "description": "Camisa básica de algodón",
+            "category": "ropa"
+        },
+        {
+            "id": 2,
+            "name": "Pantalon chino",
+            "price": 19.99,
+            "description": "Pantalon chino de algodon",
+            "category": "ropa"
+        }
+    ]
+    
+}
